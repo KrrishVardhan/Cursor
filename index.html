@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursor</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .techstack{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            position: relative;
+            gap: 5vw ;
+        }
+        body{
+            background-color: black;
+            cursor: none;
+        }
+
+        #cursor {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: transparent;
+            opacity: 0;
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            mix-blend-mode: exclusion;
+            transition: height 0.5s cubic-bezier(0.20, 1, 0.22, 1.7), width 0.5s cubic-bezier(0.19, 1, 0.22, 1.5), left 0.1s linear, right 0.1s linear;
+            pointer-events: none;
+        }
+
+        .box {
+            height: 200px;
+            width: 200px;
+            border-radius: 20px;
+            cursor: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 35px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: transform 0.5s linear, box-shadow 0.5s linear;
+            border: none;
+        }
+
+        .box1 {
+            background-color: rgb(243, 101, 82);
+        }
+
+        .box2 {
+            background-color: rgb(0, 115, 255);
+        }
+
+        .box3 {
+            background-color: gold;
+        }
+        .box4 {
+            background-color: rgb(0, 165, 108);
+        }
+
+        .box:hover~#cursor {
+            height: 100px;
+            width: 100px;
+            color: black;
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 0px 10px white;
+        }
+        a{
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="techstack">
+        <a class="box box1" href="https://www.w3schools.com/html/">HTML</a>
+        <a class="box box2" href="https://www.w3schools.com/css/">CSS</a>
+        <a class="box box3" href="https://www.w3schools.com/js/">JS</a>
+        <a class="box box4" href="https://www.w3schools.com/mysql/default.asp">MySQL</a>
+        <div id="cursor">
+            <h4>VIEW</h4>
+        </div>
+    </div>
+    <script>
+        const cursor = document.getElementById("cursor");
+        window.addEventListener("mousemove", (e) => {
+            cursor.style.left = `${e.clientX}px`;
+            cursor.style.top = `${e.clientY}px`;
+            cursor.style.opacity = 1;
+        });
+
+    </script>
+</body>
+
+</html>
